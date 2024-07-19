@@ -1,11 +1,14 @@
 pipeline {
     agent {
-    docker { image 'sudo docker pull node:16-alpine' }
-  }
+        docker {
+            image 'node:16-alpine'  // Corrected Docker image name
+            reuseNode true          // Reuse the Docker container across multiple stages
+        }
+    }
     stages {
         stage('test') {
             steps {
-                echo "testing..."
+                echo "Testing..."
                 sh 'node --version'
             }
         }
@@ -25,4 +28,3 @@ pipeline {
         }
     }
 }
-
