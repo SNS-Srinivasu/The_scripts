@@ -3,23 +3,24 @@ pipeline {
         docker {
             image 'node:16-alpine'
             reuseNode true
-            environment: {
+            environment {
                 DOCKER_CERT_PATH = '/Users/saipandu/.docker'  // Path to TLS certificates
                 DOCKER_TLS_VERIFY = '1'  // Enable TLS verification
             }
         }
     }
     stages {
-        stage('test') {
+        stage('Test') {
             steps {
                 echo "Testing..."
                 sh 'node --version'
+                // Add more test commands here as needed
             }
         }
 
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo "Running tests..."
+                echo "Running tests..."  // Renamed from 'Test' to 'Build' for clarity
                 // Add your test execution commands here
             }
         }
