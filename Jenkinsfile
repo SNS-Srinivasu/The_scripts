@@ -1,18 +1,12 @@
 pipeline {
-    agent any
-    
-    // Define tools outside of stages block
-    tools {
-        // Define JDK and Maven tools
-        jdk 'jdk11'
-        maven 'maven3'
-    }
-
+    agent {
+    docker { image 'node:16-alpine' }
+  }
     stages {
-        stage('Build') {
+        stage('test') {
             steps {
-                echo "Building..."
-                sh 'mvn clean package'
+                echo "testing..."
+                sh 'node --version'
             }
         }
 
