@@ -1,8 +1,12 @@
 pipeline {
     agent {
         docker {
-            image 'node:16-alpine'  // Corrected Docker image name
-            reuseNode true          // Reuse the Docker container across multiple stages
+            image 'node:16-alpine'
+            reuseNode true
+            environment {
+                DOCKER_CERT_PATH = '/Users/saipandu/.docker/ssl'  // Path to TLS certificates
+                DOCKER_TLS_VERIFY = '1'  // Enable TLS verification
+            }
         }
     }
     stages {
