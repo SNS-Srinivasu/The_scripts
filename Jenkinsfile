@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'node:16-alpine'
             reuseNode true
-            environment {
+            environment: {
                 DOCKER_CERT_PATH = '/Users/saipandu/.docker'  // Path to TLS certificates
                 DOCKER_TLS_VERIFY = '1'  // Enable TLS verification
             }
