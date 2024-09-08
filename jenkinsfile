@@ -6,8 +6,6 @@ pipeline {
                 cleanWs()
             }
         }
-    }
-    stages {
         stage('Build') {
             steps {
                 echo "build is complete "
